@@ -12,7 +12,6 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    inputs:
       
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -36,7 +35,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ github.event.inputs.region }}
+        aws-region: eu-north-1
       
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
@@ -44,4 +43,4 @@ jobs:
         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
         unzip awscliv2.zip
         sudo ./aws/install
-        aws cloudformation --region eu-north-1 create-stack --template-body my-CF-stack.yaml --stack-name tiina-demo-pipeline-stack 
+        aws cloudformation create-stack --template-body my-CF-stack.yaml --stack-name tiina-demo-pipeline-stack 
