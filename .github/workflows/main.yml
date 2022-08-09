@@ -12,6 +12,8 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -42,4 +44,4 @@ jobs:
         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
         unzip awscliv2.zip
         sudo ./aws/install
-        aws cloudformation create-stack --template-body my-CF-stack.yaml --stack-name 'tiina-demo-pipeline-stack' --region 'eu-north-1'
+        aws cloudformation --region eu-north-1 create-stack --template-body my-CF-stack.yaml --stack-name tiina-demo-pipeline-stack 
