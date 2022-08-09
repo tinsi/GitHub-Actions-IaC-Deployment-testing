@@ -12,7 +12,6 @@ Resources:
   TiinanInstanssi:
     Type: AWS::EC2::Instance
     Properties:
-      AvailabilityZone: eu-north-1
       ImageId: !Ref LatestAmiId
       InstanceType: !Ref Instanssityyppi
 
